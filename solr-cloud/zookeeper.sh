@@ -1,12 +1,13 @@
 #!/bin/bash
 #wget --no-check-certificate --no-cookies "https://files-cdn.liferay.com/mirrors/download.oracle.com/otn-pub/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz"
-wget --no-check-certificate --no-cookies "https://files-cdn.liferay.com/mirrors/download.oracle.com/otn-pub/java/jdk/11.0.13+10/bdde8881e2e3437baa70044f884d2d67/jdk-11.0.13_linux-x64_bin.tar.gz"
-tar -xvf jdk-11*
+#wget --no-check-certificate --no-cookies "https://files-cdn.liferay.com/mirrors/download.oracle.com/otn-pub/java/jdk/11.0.13+10/bdde8881e2e3437baa70044f884d2d67/jdk-11.0.13_linux-x64_bin.tar.gz"
+wget --no-check-certificate --no-cookies "https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz"
+tar -xvf jdk-1*
 mkdir /usr/lib/jvm
-mv ./jdk11* /usr/lib/jvm/jdk11.0.13
-update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk11.0.13/bin/java" 1
-update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk11.0.13/bin/javac" 1
-update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk11.0.13/bin/javaws" 1
+mv ./jdk1* /usr/lib/jvm/jdk18
+update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk18/bin/java" 1
+update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk18/bin/javac" 1
+update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk18/bin/javaws" 1
 chmod a+x /usr/bin/java
 chmod a+x /usr/bin/javac
 chmod a+x /usr/bin/javaws
@@ -41,7 +42,7 @@ echo $(($1+1)) >> /var/lib/zookeeper/myid
 zookeeper-3.4.12/bin/zkServer.sh start
 
 #JAVA_HOME update
-echo JAVA_HOME="/usr/lib/jvm/jdk11.0.13" >> /etc/environment
+echo JAVA_HOME="/usr/lib/jvm/jdk18" >> /etc/environment
 
 #Solr
 wget --no-check-certificate --no-cookies "https://www.apache.org/dyn/closer.lua/lucene/solr/8.11.1/solr-8.11.1.tgz?action=download" -O ./solr-8.11.1.tgz
